@@ -17,7 +17,6 @@ if __name__ == "__main__":
     api script
     """
     emp_ID = argv[1]
-
     todo = get(
         "https://jsonplaceholder.typicode.com/todos"
     )
