@@ -9,8 +9,7 @@ if __name__ == "__main__":
         """
         Make a get request ti Rest API
         """
-        response = requests.get(f'https://jsonplaceholder.\
-                            typicode.com/todos?userId={employee_id}')
+        response = requests.get('https://jsonplaceholder.typicode.com/todos/')
 
         if response.status_code == 200:
             todos = response.json()
@@ -19,9 +18,11 @@ if __name__ == "__main__":
         completed = len(tasks_completed)
         employee_name = todos[0]['username']
 
-        print(f"Employee {employee_name} is done with tasks ({completed}/{tasks}):")
+        print(f"Employee {employee_name} is done with tasks\
+        ({completed}/{tasks}):")
 
         for item in tasks_completed:
             print(f"\t{item['title']}")
         else:
-            print(f"Failed to retrieve TODO list. Error: {response.status_code}")
+            print(f"Failed to retrieve TODO list.\
+             Error: {response.status_code}")
