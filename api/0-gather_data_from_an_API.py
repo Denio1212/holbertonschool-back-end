@@ -2,27 +2,33 @@
 """
 Retrieves information on employee To do list
 """
-import requests
+import urllib.request
+import json
+import sys
 
-if __name__ == "__main__":
-    def get_employee_todo_progress(employee_id):
-        """
-        Make a get request ti Rest API
-        """
-        response = requests.get('https://jsonplaceholder.typicode.com/todos/')
 
-        if response.status_code == 200:
-            todos = response.json()
-        tasks = len(todos)
-        tasks_completed = {todo for todo in todos if todo["completed"]}
-        completed = len(tasks_completed)
-        employee_name = todos[0]['username']
+def get_employee_todo_progress(employee_id):
+    """
+    Gets the employee to do requests
+    """
+    url = f'https://jsonplaceholder.typicode.com/todos?userId={employee_id}'
+    response = urllib.request.urlopen(url)
+    data = json.lo
+    total_tasks = len(data)
+    done_tasks = [task for task in data if task['completed']]
+    done_task_count = len(done_tasks)
+    employee_name = data[0]['name']
 
-        print(f"Employee {employee_name} is done with tasks\
-        ({completed}/{tasks}):")
+    print(f"Employee {employee_name} is done with tasks ({done_task_count}/{total_tasks}):")
 
-        for item in tasks_completed:
-            print(f"\t{item['title']}")
-        else:
-            print(f"Failed to retrieve TODO list.\
-             Error: {response.status_code}")
+    for task in done_tasks:
+        print(f"\t{task['title']}")
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Please provide an employee ID as an argument.")
+    else:
+        employee_id = int(sys.argv[1])
+        get_employee_todo_progress(employee_id)ads(response.read().decode())
+
