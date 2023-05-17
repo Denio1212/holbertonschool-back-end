@@ -26,6 +26,9 @@ def get_employee_todo_progress(employee_id):
 
 
 if __name__ == '__main__':
+    """
+    doctor is the one
+    """
     if len(sys.argv) < 2:
         print("Please provide an employee ID as an argument.")
     else:
