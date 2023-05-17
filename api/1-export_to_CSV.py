@@ -23,7 +23,7 @@ if __name__ == "__main__":
     )
 
     user = get(
-        "https://jsonplaceholder.typicode.com/todos".format(id)
+        "https://jsonplaceholder.typicode.com/users/{}".format(id)
 
     )
 
