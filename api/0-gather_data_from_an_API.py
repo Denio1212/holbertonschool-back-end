@@ -33,5 +33,4 @@ if __name__ == '__main__':
         print("Please provide an employee ID as an argument.")
     else:
         employee_id = int(sys.argv[1])
-        get_employee_todo_progress(employee_id)ads(response.read().decode())
-
+        get_employee_todo_progress(employee_id)
